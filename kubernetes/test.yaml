@@ -1,0 +1,31 @@
+apiVersion: "hodor.oracledx.com/v1"
+kind: Canary
+metadata:
+  name: sre-endpoint-test
+  namespace: sre
+  annotations:
+    project.v1.hodor.oracledx: sre
+    service.v1.hodor.oracledx: grafana.prod
+spec:
+    intervalBetweenRuns: 10000
+    metrics:
+    - name: sre_rest_endpoint_check
+      type: gauge
+      help: SRE madhu/isha dev instance health check.
+      labels: ['svc']
+    type: container
+    container:
+      imagePullSecrets:
+        - name: wcr-io
+      image: madhukirans/monitor:1.0
+      env:
+        - name: SRE_SECRET_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: password
+        - name: SRE_SECRET_DEMO
+          value: "Hello rest api "
+      args:
+        - "java -jar"
+        - "https://grafana.dev.sre.sauron.us-ashburn-1.oracledx.com"
