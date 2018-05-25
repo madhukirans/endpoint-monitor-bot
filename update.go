@@ -22,7 +22,7 @@ func UpdateEndPoint(c *gin.Context) {
 			c.Bind(&newEndPoint)
 
 			result := EndPoint{
-				Id:        endpoint.Id,
+				Id:    endpoint.Id,
 				Label: newEndPoint.Label,
 				Host:  newEndPoint.Host,
 			}
@@ -43,4 +43,3 @@ func UpdateEndPoint(c *gin.Context) {
 
 	// curl -i -X PUT -H "Content-Type: application/json" -d "{ \"firstname\": \"Thea\", \"lastname\": \"Merlyn\" }" http://localhost:8080/api/v1/endpoints/1
 }
-

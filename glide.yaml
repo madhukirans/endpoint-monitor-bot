@@ -1,0 +1,10 @@
+package: github.com/madhukirans/endpoint-monitor-bot
+import:
+- package: "github.com/jinzhu/gorm"
+#  version: latest
+- package: "github.com/gin-gonic/gin"
+#  version: latest
+- package: "github.com/mattn/go-sqlite3"
+#  version: latest
+- package: "github.com/gocql/gocql"
+#  version: latest

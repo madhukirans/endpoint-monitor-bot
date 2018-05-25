@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
 	"fmt"
+	"github.com/gin-gonic/gin"
 	"io/ioutil"
 	//"encoding/json"
 	"encoding/json"
@@ -32,15 +32,14 @@ func PostMaintenance(c *gin.Context) {
 		//
 	}
 
-
 	x, _ := ioutil.ReadAll(c.Request.Body)
 	//fmt.Printf("%s \n", x)
 	var dat map[string]interface{}
 	json.Unmarshal(x, &dat)
 	fmt.Println(dat)
 
-	StartTime, _ := time.Parse( time.RFC3339, dat["starttime"].(string))
-	EndTime, _ := time.Parse( time.RFC3339, dat["endtime"].(string))
+	StartTime, _ := time.Parse(time.RFC3339, dat["starttime"].(string))
+	EndTime, _ := time.Parse(time.RFC3339, dat["endtime"].(string))
 
 	maintenance.Label = endpoint.Label
 	maintenance.StartTime = StartTime
@@ -63,16 +62,16 @@ func PostEndPoint(c *gin.Context) {
 	db := InitDb()
 	defer db.Close()
 
-	print ("Madhu")
+	print("Madhu")
 	var endpoint EndPoint
 	print(c.Params)
 	c.Bind(&endpoint)
 
-	print("Madhu:" )
+	print("Madhu:")
 	print(endpoint.Label)
 
 	if endpoint.Label != "" && endpoint.Host != "" {
-		if (endpoint.HttpType == ""){
+		if endpoint.HttpType == "" {
 			endpoint.HttpType = "http"
 		}
 		// INSERT INTO "endpoint" (name) VALUES (endpoint.Label);

@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
 	"fmt"
+	"github.com/gin-gonic/gin"
 )
 
 func GetEndPoints(c *gin.Context) {
@@ -21,7 +21,7 @@ func GetEndPoints(c *gin.Context) {
 	// curl -i http://localhost:8080/api/v1/endpoints
 }
 
-func GetMaintenances(c *gin.Context){
+func GetMaintenances(c *gin.Context) {
 	// Connection to the database
 	db := InitDb()
 	// Close connection database
@@ -38,9 +38,7 @@ func GetMaintenances(c *gin.Context){
 	// curl -i http://localhost:8080/api/v1/maintenance
 }
 
-
-
-func GetEndPoint(c *gin.Context)  {
+func GetEndPoint(c *gin.Context) {
 	// Connection to the database
 	db := InitDb()
 	// Close connection database
@@ -61,7 +59,7 @@ func GetEndPoint(c *gin.Context)  {
 	// curl -i http://localhost:8080/api/v1/endpoints/1
 }
 
-func GetValidEndPoints(c *gin.Context)  {
+func GetValidEndPoints(c *gin.Context) {
 	// Connection to the database
 	db := InitDb()
 	// Close connection database
@@ -81,4 +79,3 @@ func GetValidEndPoints(c *gin.Context)  {
 	}
 	// curl -i http://localhost:8080/api/v1/endpoints/1
 }
-

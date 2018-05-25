@@ -8,6 +8,6 @@ FROM oraclelinux:latest
  #RUN yum install -y gcc wget openssl-devel libffi-devel
  #RUN yum install -y openssl-devel redhat-lsb yum-utils rpmdevtools
 
-ADD restserver
-EXPOSE 8010
-ENTRYPOINT ["restserver"]
+ADD dist/bin/endpoint-monitor-bot  /endpoint-monitor-bot
+EXPOSE 8080
+ENTRYPOINT ["/endpoint-monnitor-bot"]

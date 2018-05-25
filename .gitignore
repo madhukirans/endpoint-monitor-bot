@@ -1,0 +1,13 @@
+# Mac burbles
+**/.DS_Store
+
+# IDE stuff
+.idea/
+.vscode/
+*.iml
+
+# Built stuff
+go/bin/**
+dist/**
+builds/**
+vendor/**
