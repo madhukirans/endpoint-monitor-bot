@@ -10,4 +10,3 @@
 go/bin/**
 dist/**
 builds/**
-vendor/**
